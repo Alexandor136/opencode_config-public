@@ -1,0 +1,17 @@
+# Мусор и локальные артефакты
+*.log
+*.bak
+*.bak.*
+.DS_Store
+Thumbs.db
+
+# Секреты и данные, которые не должны попадать в репозиторий
+.env
+.env.*
+*.pem
+*.key
+credentials.json
+auth.json
+
+# Локальная память MCP
+memory.json

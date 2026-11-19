@@ -1,0 +1,100 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+
+  // Модель по умолчанию. Подставьте свою, иначе OpenCode спросит при первом запуске.
+  // Формат: "<provider>/<model>", например "anthropic/claude-sonnet-5-5".
+  // "model": "provider/model-id",
+
+  "compaction": {
+    "auto": true,
+  },
+
+  // Ограничение на вывод инструментов: защита от «простыней» в контексте.
+  "tool_output": {
+    "max_lines": 1000,
+    "max_bytes": 50000,
+  },
+
+  // Браузер и uvx-серверы стартуют дольше текстовых MCP, поэтому таймауты подняты.
+  "mcp": {
+    "timeout": {
+      "startup": 60000,
+      "catalog": 30000,
+      "execution": 600000,
+    },
+    "servers": {
+      // --- Браузер: ваш реальный Chrome через расширение browse ---
+      "browse": {
+        "type": "local",
+        "command": ["__HOME__/.local/bin/browse", "mcp"],
+        "cwd": "~",
+        "pool": true,
+        "environment": {
+          "OPENCODE_BROWSER_RUNTIME": "auto-update",
+        },
+      },
+
+      // --- Документация библиотек ---
+      "context7": {
+        "type": "remote",
+        "url": "https://mcp.context7.com/mcp",
+      },
+
+      // --- Поиск реального кода по публичным репозиториям ---
+      "gh_grep": {
+        "type": "remote",
+        "url": "https://mcp.grep.app",
+      },
+
+      // --- Веб-поиск и research (бесплатные инструменты без ключа) ---
+      "parallel": {
+        "type": "remote",
+        "url": "https://mcp.parallel.ai/mcp",
+      },
+
+      // --- Долговременная память между сессиями ---
+      "memory": {
+        "type": "local",
+        "command": ["npx", "-y", "@modelcontextprotocol/server-memory"],
+        "environment": {
+          "MEMORY_FILE_PATH": "__HOME__/.local/share/opencode/memory/memory.json",
+        },
+      },
+
+      // --- Структурированное мышление для архитектуры и сложного дебага ---
+      "sequential-thinking": {
+        "type": "local",
+        "command": ["npx", "-y", "@modelcontextprotocol/server-sequential-thinking"],
+      },
+
+      // --- Диаграммы draw.io ---
+      "drawio": {
+        "type": "local",
+        "command": ["npx", "-y", "@drawio/mcp"],
+      },
+
+      // --- Офисные документы ---
+      "word": {
+        "type": "local",
+        "command": ["uvx", "--from", "office-word-mcp-server", "word_mcp_server"],
+      },
+      "excel": {
+        "type": "local",
+        "command": ["uvx", "excel-mcp-server", "stdio"],
+      },
+
+      // --- Headless-браузер для E2E и скриншотов ---
+      "playwright": {
+        "type": "local",
+        "command": [
+          "npx",
+          "-y",
+          "@playwright/mcp@latest",
+          "--browser",
+          "chrome",
+          "--headless",
+        ],
+      },
+    },
+  },
+}

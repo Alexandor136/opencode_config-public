@@ -1,0 +1,169 @@
+<mxfile host="app.diagrams.net" agent="opencode" version="24.7.17" type="device">
+  <diagram id="opencode-infra" name="OpenCode infrastructure">
+    <mxGraphModel dx="1800" dy="1000" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1800" pageHeight="1000" math="0" shadow="0" adaptiveColors="auto">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="title" value="OpenCode V2 — инфраструктура агентов, MCP и навыков" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=24;fontStyle=1;fontColor=#1B1F24;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="1720" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="subtitle" value="Публичная конфигурация opencode_config · 10 MCP-серверов · 90 навыков · секреты только через env/OAuth" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=12;fontColor=#5A626E;" vertex="1" parent="1">
+          <mxGeometry x="40" y="60" width="1720" height="24" as="geometry" />
+        </mxCell>
+
+        <mxCell id="user" value="&lt;b&gt;Пользователь&lt;/b&gt;&lt;br&gt;запрос / решение" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EEF4FF;strokeColor=#9DB8F2;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="50" y="160" width="160" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="tui" value="&lt;b&gt;TUI / CLI&lt;/b&gt;&lt;br&gt;opencode · проект" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EEF4FF;strokeColor=#9DB8F2;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="250" y="160" width="180" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="primary" value="&lt;b&gt;Primary agent&lt;/b&gt;&lt;br&gt;build / plan" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E7F6EC;strokeColor=#8BCB9F;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="470" y="160" width="220" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="codemode" value="&lt;b&gt;Code Mode&lt;/b&gt;&lt;br&gt;execute · MCP tools&lt;br&gt;&lt;font color=&quot;#C9302C&quot;&gt;permissions: allow / ask / deny&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF0E5;strokeColor=#F0B48A;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="730" y="160" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="session" value="&lt;b&gt;Session context&lt;/b&gt;&lt;br&gt;per session · compaction&lt;br&gt;tool_output limits" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3EEFF;strokeColor=#B9A6F0;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1370" y="160" width="180" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="llm" value="&lt;b&gt;LLM client&lt;/b&gt;&lt;br&gt;provider / model&lt;br&gt;HTTPS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3EEFF;strokeColor=#B9A6F0;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1580" y="160" width="180" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="subagents" value="&lt;b&gt;Subagents&lt;/b&gt;&lt;br&gt;explore / general&lt;br&gt;свой контекст" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E7F6EC;strokeColor=#8BCB9F;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="250" y="300" width="180" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="skilltool" value="&lt;b&gt;Skill tool&lt;/b&gt;&lt;br&gt;загрузка навыка по ID" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF9DB;strokeColor=#E9D58A;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="470" y="300" width="220" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="rules" value="&lt;b&gt;AGENTS.md&lt;/b&gt;&lt;br&gt;язык · Context7 · memory&lt;br&gt;git · security · skills" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF9DB;strokeColor=#E9D58A;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="730" y="300" width="200" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="skillsbox" value="&lt;b&gt;Навыки (90)&lt;/b&gt;&lt;br&gt;72 domain: языки · фреймворки · БД · DevOps · security · testing&lt;br&gt;18 packs: Parallel (15) · deep-research · context7-mcp · find-skills&lt;br&gt;Память: memory MCP · continuous-learning-v2 (instincts)&lt;br&gt;&lt;br&gt;&lt;i&gt;Приоритет: built-in → ~/.claude → ~/.agents → ~/.config/opencode → .opencode → config&lt;/i&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF9DB;strokeColor=#E9D58A;fontSize=11;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="250" y="420" width="450" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="routemap" value="&lt;b&gt;Маршрут запроса&lt;/b&gt;&lt;br&gt;0. memory_search → прошлый опыт&lt;br&gt;1. prompt → primary&lt;br&gt;2. AGENTS.md задаёт правила&lt;br&gt;3. skill tool выбирает навык&lt;br&gt;4. execute вызывает MCP&lt;br&gt;5. результат → session → LLM&lt;br&gt;&lt;br&gt;&lt;i&gt;Subagents получают отдельный контекст и возвращают результат primary.&lt;/i&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF9DB;strokeColor=#E9D58A;fontSize=11;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="730" y="420" width="220" height="220" as="geometry" />
+        </mxCell>
+
+        <mxCell id="config" value="&lt;b&gt;opencode.json(c)&lt;/b&gt;&lt;br&gt;model&lt;br&gt;MCP · timeouts&lt;br&gt;tool_output" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F2F4F7;strokeColor=#B8C0CC;fontSize=11;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="50" y="300" width="160" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="handoff" value="&lt;b&gt;Handoff&lt;/b&gt;&lt;br&gt;логин · 2FA&lt;br&gt;капча · оплата" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F2F4F7;strokeColor=#B8C0CC;fontSize=11;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="50" y="460" width="160" height="100" as="geometry" />
+        </mxCell>
+
+        <mxCell id="mcpcontainer" value="3 · MCP-серверы (10) · server_tool" style="swimlane;horizontal=1;startSize=30;html=1;rounded=0;fillColor=#E6F2FF;strokeColor=#9DB8F2;fontStyle=1;fontSize=13;fontColor=#1B1F24;verticalAlign=middle;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="970" y="120" width="360" height="420" as="geometry" />
+        </mxCell>
+        <mxCell id="remotegrp" value="Remote · HTTP + OAuth" style="swimlane;horizontal=1;startSize=28;html=1;rounded=0;fillColor=#EEF4FF;strokeColor=#9DB8F2;fontStyle=1;fontSize=12;verticalAlign=middle;spacingLeft=8;" vertex="1" parent="mcpcontainer">
+          <mxGeometry x="20" y="50" width="320" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="context7" value="context7 — документация" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#9DB8F2;fontSize=11;" vertex="1" parent="remotegrp">
+          <mxGeometry x="15" y="40" width="290" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ghgrep" value="gh_grep — код из GitHub" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#9DB8F2;fontSize=11;" vertex="1" parent="remotegrp">
+          <mxGeometry x="15" y="85" width="290" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="parallel" value="parallel — поиск / research" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#9DB8F2;fontSize=11;" vertex="1" parent="remotegrp">
+          <mxGeometry x="15" y="130" width="290" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="localgrp" value="Local · stdio" style="swimlane;horizontal=1;startSize=28;html=1;rounded=0;fillColor=#E7F6EC;strokeColor=#8BCB9F;fontStyle=1;fontSize=12;verticalAlign=middle;spacingLeft=8;" vertex="1" parent="mcpcontainer">
+          <mxGeometry x="20" y="245" width="320" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="browse" value="browse" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#8BCB9F;fontSize=10;" vertex="1" parent="localgrp">
+          <mxGeometry x="10" y="40" width="70" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="memory" value="memory*" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#8BCB9F;fontSize=10;" vertex="1" parent="localgrp">
+          <mxGeometry x="85" y="40" width="70" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="seq" value="sequential-thinking" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#8BCB9F;fontSize=9;" vertex="1" parent="localgrp">
+          <mxGeometry x="160" y="40" width="75" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="drawio" value="drawio" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#8BCB9F;fontSize=10;" vertex="1" parent="localgrp">
+          <mxGeometry x="240" y="40" width="70" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="word" value="word" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#8BCB9F;fontSize=10;" vertex="1" parent="localgrp">
+          <mxGeometry x="10" y="90" width="70" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="excel" value="excel" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#8BCB9F;fontSize=10;" vertex="1" parent="localgrp">
+          <mxGeometry x="85" y="90" width="70" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="playwright" value="playwright" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#8BCB9F;fontSize=10;" vertex="1" parent="localgrp">
+          <mxGeometry x="160" y="90" width="75" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="localnote" value="npx / uvx · host processes · * memory persists between sessions" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=9;fontColor=#5A626E;" vertex="1" parent="localgrp">
+          <mxGeometry x="10" y="135" width="300" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="extcontainer" value="4 · Внешние системы и данные" style="swimlane;horizontal=1;startSize=30;html=1;rounded=0;fillColor=#F2F4F7;strokeColor=#B8C0CC;fontStyle=1;fontSize=13;fontColor=#1B1F24;verticalAlign=middle;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="970" y="600" width="360" height="300" as="geometry" />
+        </mxCell>
+        <mxCell id="docs" value="&lt;b&gt;Context7 · grep.app · Parallel&lt;/b&gt;&lt;br&gt;HTTPS / OAuth" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#B8C0CC;fontSize=11;" vertex="1" parent="extcontainer">
+          <mxGeometry x="20" y="50" width="320" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="chrome" value="&lt;b&gt;Chrome + extension&lt;/b&gt;&lt;br&gt;browse relay 127.0.0.1:19988" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#B8C0CC;fontSize=11;" vertex="1" parent="extcontainer">
+          <mxGeometry x="20" y="125" width="320" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="pkg" value="&lt;b&gt;npm · PyPI&lt;/b&gt;&lt;br&gt;npx / uvx" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#B8C0CC;fontSize=11;" vertex="1" parent="extcontainer">
+          <mxGeometry x="20" y="200" width="150" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="localdata" value="&lt;b&gt;Локальные данные&lt;/b&gt;&lt;br&gt;config · skills · sessions&lt;br&gt;memory.json · relay-token" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#B8C0CC;fontSize=10;" vertex="1" parent="extcontainer">
+          <mxGeometry x="190" y="200" width="150" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="longterm" value="&lt;b&gt;Memory между сессиями&lt;/b&gt;&lt;br&gt;memory.json&lt;br&gt;facts · prefs · lessons&lt;br&gt;memory_search / save" style="shape=cylinder3;whiteSpace=wrap;html=1;fillColor=#F3EEFF;strokeColor=#B9A6F0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="1370" y="300" width="180" height="100" as="geometry" />
+        </mxCell>
+
+        <mxCell id="security" value="&lt;b&gt;Секреты и границы&lt;/b&gt;&lt;br&gt;• в конфиге только &lt;b&gt;{env:NAME}&lt;/b&gt;&lt;br&gt;• OAuth через &lt;b&gt;/mcps&lt;/b&gt;&lt;br&gt;• .gitignore: .env, *.key, auth.json, memory.json&lt;br&gt;• relay слушает только loopback&lt;br&gt;• browse действует от имени пользователя&lt;br&gt;• write / bash требуют подтверждения" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FDECEC;strokeColor=#EBA3A3;fontSize=11;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="1370" y="600" width="390" height="300" as="geometry" />
+        </mxCell>
+
+        <mxCell id="legend" value="&lt;b&gt;Легенда:&lt;/b&gt; сплошная стрелка — вызов · пунктир — правила, конфиг или делегирование · синий — remote · зелёный — local · жёлтый — поведение агента · красный — безопасность · фиолетовый — контекст и память" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=11;fontColor=#5A626E;" vertex="1" parent="1">
+          <mxGeometry x="50" y="930" width="1710" height="30" as="geometry" />
+        </mxCell>
+
+        <mxCell id="e-user-tui" value="запрос" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeColor=#8A94A6;fontSize=10;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="user" target="tui">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-tui-primary" value="prompt" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeColor=#8A94A6;fontSize=10;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="tui" target="primary">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-primary-subagents" value="делегирование" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;dashed=1;startArrow=block;startFill=1;endArrow=block;endFill=1;strokeColor=#8A94A6;fontSize=10;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="primary" target="subagents">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-primary-skill" value="выбор навыка" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeColor=#8A94A6;fontSize=10;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="primary" target="skilltool">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-skill-skills" value="SKILL.md" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeColor=#8A94A6;fontSize=10;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="skilltool" target="skillsbox">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-rules-primary" value="правила" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;dashed=1;endArrow=block;endFill=1;strokeColor=#8A94A6;fontSize=10;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="rules" target="primary">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-primary-code" value="tool call" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeColor=#8A94A6;fontSize=10;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="primary" target="codemode">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-code-mcp" value="MCP" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeColor=#8A94A6;fontSize=10;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="codemode" target="mcpcontainer">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-mcp-session" value="tool results" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;dashed=1;endArrow=block;endFill=1;strokeColor=#8A94A6;fontSize=10;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="mcpcontainer" target="session">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-session-llm" value="context" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeColor=#8A94A6;fontSize=10;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="session" target="llm">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-memory-longterm" value="read / write" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;startArrow=block;startFill=1;endArrow=block;endFill=1;strokeColor=#8A94A6;fontSize=10;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="memory" target="longterm">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-mcp-ext" value="HTTPS · relay · stdio" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeColor=#8A94A6;fontSize=10;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="mcpcontainer" target="extcontainer">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
